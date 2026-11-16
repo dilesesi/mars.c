@@ -357,5 +357,36 @@ int main() {
 
     } while (gun < 16);
 
+     // --- OYUN SONU RAPORU VE PUANLAMA ---
+    int puan = (gun * 100) + saglik + oksijen + modul - 100;
+    if (puan < 0) puan = 0; // Puanın eksiye düşmesini önlemek için
+
+    printf("\n========================================\n");
+    printf("          SIMULASYON SONA ERDI          \n");
+    printf("========================================\n");
+
+    // Oyun bitiş sebebini ekrana yazdırma
+    if (saglik <= 0 || oksijen <= 0) {
+        printf("SONUC: KAYBETTINIZ! Yasam destegi tukendi.\n");
+    } else if (gun >= 15) {
+        printf("SONUC: KAZANDINIZ! 15 gun hayatta kaldiniz, kurtarma ekibi ulasti!\n");
+    } else {
+        printf("SONUC: CIKIS YAPILDI! Gorev sonlandirildi.\n");
+    }
+
+    printf("----------------------------------------\n");
+    printf("Hayatta Kalinan Gun : %d\n", gun);
+    printf("Toplam Komut (Tur)  : %d\n", tur);
+    printf("Son Saglik          : %d\n", saglik);
+    printf("Son Enerji          : %d\n", enerji);
+    printf("Son Oksijen         : %d\n", oksijen);
+    printf("Kalan Su            : %d\n", su);
+    printf("Kalan Yedek Parca   : %d\n", yedekparca);
+    printf("Modul Durumu        : %d\n", modul);
+    printf("----------------------------------------\n");
+    printf("TOPLAM PUAN         : %d\n", puan);
+    printf("========================================\n");
+
+
     return 0;
 }
